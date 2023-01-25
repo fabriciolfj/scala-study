@@ -1,5 +1,8 @@
-name := "simple-app"
+ThisBuild / version := "0.1.0-SNAPSHOT"
 
-version := "0.1"
+ThisBuild / scalaVersion := "3.2.2"
 
-scalaVersion := "2.13.6"
+lazy val root = (project in file("."))
+  .settings(
+    name := "scala-study"
+  )
