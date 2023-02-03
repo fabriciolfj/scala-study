@@ -5,7 +5,7 @@ extension (sc: StringContext)
     val strings: Iterator[String] = sc.parts.iterator
     val expressions: Iterator[Any] = args.iterator
 
-    val sb = StringBuilder(strings.next.trim)
+    val sb = StringBuilder(strings.next)
     while strings.hasNext do
       sb.append(expressions.next.toString)
       sb.append(strings.next)
