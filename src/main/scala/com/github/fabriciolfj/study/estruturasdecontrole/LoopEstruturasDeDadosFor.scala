@@ -3,6 +3,9 @@ package com.github.fabriciolfj.study.estruturasdecontrole
 @main def executeLoopEstruturasDeDadosFor() : Unit = {
   //forBasic()
   forBasicIf()
+
+  val result = 0 to 10
+  for i <- result do print(i)
 }
 
 def forBasic() : Unit = {

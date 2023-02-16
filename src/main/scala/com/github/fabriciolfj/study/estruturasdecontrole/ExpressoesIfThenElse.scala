@@ -9,8 +9,8 @@ package com.github.fabriciolfj.study.estruturasdecontrole
 def compare(a: Int, b: Int) : Int = {
   if a < b then
     -1
-  else if a == b then
-    0
-  else
+  else if a > b then
     1
+  else
+    0  
 }

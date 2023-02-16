@@ -10,6 +10,6 @@ import scala.util.Random
 }
 
 def getRandomElement[A](list: Seq[A], random: Random) : A = {
-  return list(random.nextInt(list.length))
+  list(random.nextInt(list.length))
 }
 
