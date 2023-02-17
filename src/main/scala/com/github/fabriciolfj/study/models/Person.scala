@@ -1,4 +1,4 @@
 package com.github.fabriciolfj.study.models
 
-class Person(val name: String) :
+case class Person(name: String) :
   override def toString = name
