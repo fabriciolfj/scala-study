@@ -12,5 +12,5 @@ def abs(a : Int) : Int = {
   if a > 0 then
     a
   else
-  -a
+    a  * -1
 }

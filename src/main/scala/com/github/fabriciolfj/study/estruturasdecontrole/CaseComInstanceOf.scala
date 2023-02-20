@@ -9,8 +9,8 @@ import com.github.fabriciolfj.study.models.Shape.Circle
   println(calc(Square(0, 0, 2)))
 }
 
-def calc(s: Shape) : Double = {
-  s match
-    case Circle(_, _, r) => Math.PI * r * r
-    case Square(_, _, l) => l * l
+def calc(value: Shape) : Double = {
+  value match
+  case Circle(_, _, x) => Math.PI * (x * x)
+  case Square(_, _, x) => x * x
 }
