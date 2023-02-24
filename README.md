@@ -39,3 +39,5 @@ class Person(private var _name: String):
     def name = _name                                  // accessor
     def name_=(aName: String): Unit = _name = aName   // mutator
 ```
+
+##5.12
