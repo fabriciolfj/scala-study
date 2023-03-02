@@ -40,4 +40,48 @@ class Person(private var _name: String):
     def name_=(aName: String): Unit = _name = aName   // mutator
 ```
 
-##5.12
+## Uso do lazy
+- caso queria iniciar um bloco de codigo tardiamente, anote-o com lazy
+- por exemplo, na declaracao de metodos dentro do construtor da classe, caso anote com lazy, será invocado apenas se chamar, caso contrário
+- ele será invocado na construção da classe
+
+## Classes case 
+- gera varios codigos boilerplate, como:
+  -  toString
+  - get e seter (para campos var)
+  - construtor padrao
+  - equals e hashcode
+  - copy
+  - unapply, usado para maths
+- podemos criar construtores auxiliares para classes case, via objects:
+- exemplo:
+```
+case class Car(var ano: Int, var modelo: String)
+
+object Car {
+  def apply() = new Car(0, "none")
+  def apply(modelo: String) = new Car(0, modelo)
+}
+```
+
+## Traits (interfaces)
+- similar as interfaces no java
+- podem ter métodos concretos, ou seja, corpo
+- ou abstratos, ou seja, sem corpo
+
+## Sobreesrevendo metodos
+- quando a trait possuir var, apenas chamamos a variavel na classe que a extendeu
+- quando a trait possuir val, aplicamos um override na variavel na classe que a extendeu
+- quando e um def (indicado para metodos abstratos), usamos um override del na classe que a extendeu
+- abaixo uns exemplos:
+```
+  num2 = 30
+  
+  override val num1: Int = 1
+
+  override def num: Int = 10
+```
+
+
+
+## continuar 6.3

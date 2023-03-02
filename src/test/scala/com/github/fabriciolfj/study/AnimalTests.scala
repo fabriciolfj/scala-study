@@ -2,7 +2,7 @@ package com.github.fabriciolfj.study
 import com.github.fabriciolfj.study.models.Animal
 import org.scalatest.funsuite.AnyFunSuite
 
-class AnimalTests extends AnyFunSuite{
+class AnimalTests extends AnyFunSuite {
 
   val a = Animal()
   assert(a.numLegs == 2)
