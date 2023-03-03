@@ -5,6 +5,12 @@
 - trail -> equivale a classe abstrata ou interfaces em java
 - enums -> similar ao java
 
+## classes
+- quando possui um parâmetro:
+  - val, gera getter
+  - var, gera getter e setter
+  - nao informado, se comporta como private, não gera getter e nem setter.
+
 ## Estendendo classes
 - quando uma classe estende uma classe base, e essa classe base possui parâmetros var, na classe filha utilize um nome diferente para não colidir
 - por exemplo:
@@ -49,6 +55,8 @@ class Person(private var _name: String):
 - gera varios codigos boilerplate, como:
   -  toString
   - get e seter (para campos var)
+  - get para parametros val
+  - nao gera get e nem set para parametros sem var e val (são tratados apenas como private)
   - construtor padrao
   - equals e hashcode
   - copy
@@ -72,7 +80,7 @@ object Car {
 ## Sobreesrevendo metodos
 - quando a trait possuir var, apenas chamamos a variavel na classe que a extendeu
 - quando a trait possuir val, aplicamos um override na variavel na classe que a extendeu
-- quando e um def (indicado para metodos abstratos), usamos um override del na classe que a extendeu
+- quando e um def (indicado para metodos abstratos), usamos um override def na classe que a extendeu
 - abaixo uns exemplos:
 ```
   num2 = 30
@@ -82,6 +90,15 @@ object Car {
   override def num: Int = 10
 ```
 
+## Mixins
+- multiplas características são usadas para compor uma classe, por exemplo:
+```
+@main def executeMixin() : Unit = {
+  val zeus = new Pet("Zeus") with MansBestFriend with HasTail with HasLegs
+}
+```
 
-
-## continuar 6.3
+## Parametros em trait
+- trait pode extender outra trait, mas caso a trait base tenha parametro, a trait filha não consegui passar
+- ao extender uma trait, e esta com parametro, minha classe deve ter um parametro com override de mesmo nome e tipo
+- para acessar o parametro da interface, este deve ser val ou var, não definido nao gera get

@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.study.traits_sexemplos.dog
+package com.github.fabriciolfj.study.traits_exemplos.dog
 
 class Dog extends Pet, HashLegs {
 
