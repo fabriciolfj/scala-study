@@ -102,3 +102,17 @@ object Car {
 - trait pode extender outra trait, mas caso a trait base tenha parametro, a trait filha não consegui passar
 - ao extender uma trait, e esta com parametro, minha classe deve ter um parametro com override de mesmo nome e tipo
 - para acessar o parametro da interface, este deve ser val ou var, não definido nao gera get
+- uma trait pode extender outra, e essa pode implementar ou sobreescrever seus métodos
+
+## Tipo soma e tipo produto
+- tipo produto -> a quantidade de instâncias possíveis de um tipo, multiplica o número de possibilidades de todos os seus campos contrutores
+```
+case class DoubleBoo(b1: Bool, b2: Bool) = 4
+```
+- tipo soma -> você determina o número de possibilidades ou instancias
+```
+enum Bool:
+   case True, False = 2
+```
+
+## cont 7.1
