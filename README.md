@@ -115,4 +115,117 @@ enum Bool:
    case True, False = 2
 ```
 
-## cont 7.1
+## Uso de métodos ou membro estáticos
+- dentro d classe, defina um object do mesmo nome
+```
+class Pizza(var tempero: String)
+  override def toString = s"tempero $tempero"
+  
+object Pizza:
+  val TEMPERO1 = "tempero1"
+```
+- tanto a classe como o object, possui acesso a membros privados um do outro
+```
+class Foo:
+    private val secret = 42
+
+object Foo:
+    // access the private class field `secret`
+    def doubleFoo(foo: Foo) = foo.secret * 2
+
+@main def fooMain =
+    val f = Foo()
+    println(Foo.doubleFoo(f))  // prints 84
+```
+
+## metodos
+### escopos
+- privado -> disponivel para instancia atual de uma classe e para outras suas instancias
+- protected -> método está disponível para instancia atual e subclasses
+- para deixar o método disponivel apenas para os membros do pacote atual, utilize private[packageName], exemplo:
+```
+package com.devdaily.coolapp.model:
+    class Foo:
+        // this is in “package scope”
+        private[model] def privateModelMethod = ??? // can be accessed by
+                                                    // classes in
+                                                    // com.devdaily.coolapp.model
+        private def privateMethod = ???
+        protected def protectedMethod = ???
+
+    class Bar:
+        val f = Foo()
+        f.privateModelMethod   // compiles
+        // f.privateMethod     // won’t compile
+        // f.protectedMethod   // won’t compile
+```
+- podemos também deixar em vários níveis de pacote, exemplo:
+```
+package com.devdaily.coolapp.model:
+    class Foo:
+        // available under com.devdaily.coolapp.model
+        private[model] def doUnderModel = ???
+
+        // available under com.devdaily.coolapp
+        private[coolapp] def doUnderCoolapp = ???
+
+        // available under com.devdaily
+        private[devdaily] def doUnderAcme = ???
+
+import com.devdaily.coolapp.model.Foo
+
+package com.devdaily.coolapp.view:
+    class Bar:
+        val f = Foo()
+        // f.doUnderModel  // won’t compile
+        f.doUnderCoolapp
+        f.doUnderAcme
+
+package com.devdaily.common:
+    class Bar:
+        val f = Foo()
+        // f.doUnderModel     // won’t compile
+        // f.doUnderCoolapp   // won’t compile
+        f.doUnderAcme
+```
+- publico quando não definimos nenhum modificador, qualquer classe pode acessar o método
+
+
+## Metodos de acesso sem parênteses
+- metodos acessadores sem efeito colateral, por convenção, não deve ser chamados com parênteses
+
+## Construção fluente de uma classe
+- deve declarar this.type como tipo de retorno do método e retornar this, caso a classe possa ser extendida
+- ou apenas retornar this, sem clarar o this.type caso ela não possa ser extendida (declaracao como final por exemplo)
+- exemplo que não possa ser extendida:
+```
+final class Pizza:
+    import scala.collection.mutable.ArrayBuffer
+
+    private val toppings = ArrayBuffer[Topping]()
+    private var crustSize = Medium
+    private var crustType = Regular
+
+    def addTopping(topping: Topping) =
+        toppings += topping
+        this
+
+    def setCrustSize(crustSize: CrustSize) =
+        this.crustSize = crustSize
+        this
+
+    def setCrustType(crustType: CrustType) =
+        this.crustType = crustType
+        this
+
+    def print() =
+        println(s"crust size: $crustSize")
+        println(s"crust type: $crustType")
+        println(s"toppings:   $toppings")
+end Pizza
+```
+
+## metodos de extensão
+- acrescentar funcionalidades a classes fechadas, como String e Int por exemplo
+
+## cap 9
