@@ -8,7 +8,7 @@ object Car {
 }
 
 @main def executeCar() : Unit = {
-  val car  = Car(1922, "ferrari")
+  val car  = Car("ferrari")
 
   car match
     //case Car(ano, modelo) => println(s"$ano, $modelo")

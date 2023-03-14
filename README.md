@@ -228,4 +228,32 @@ end Pizza
 ## metodos de extensão
 - acrescentar funcionalidades a classes fechadas, como String e Int por exemplo
 
-## cap 9
+## Imports e packages
+- podemos usar o import em qualquer parte da classe
+- podemos importar classes, métodos estáticos.
+- podemos renomear classes no import ou métodos, dando lhes um alias, conforme o exemplo abaixo:
+```
+import java.util.{Date as JDate, HashMap as JHashMap, *}
+import System.out.{println as p}
+```
+- também podemos ocultar membros, utilizando o caractere _
+```
+import java.util.{List => _, Map => _, Set => _, *}
+```
+- obs o coringa * sempre deve ser o ultimo membro do import
+- posso utilizar o import:
+  - no cabeçalho da classe, apos o package
+  - dentro de um método
+  - abaixo da declaração da classe
+  - dentro de um bloco de um método
+  - ex:
+```
+def printRandom =
+    {
+        import scala.util.Random
+        val r1 = Random()   //this works, as expected
+    }
+    val r2 = Random()       //error: not found: Random
+```
+
+### cotinuar 10.2
