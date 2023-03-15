@@ -4,7 +4,7 @@ class Simulacao {
 
 }
 
-@main def execute() : Unit = {
+@main def executeFunction() : Unit = {
   val list = List(1, 2, 3, 4, 5)
 
   val result = list.filter(_ % 2 == 0)

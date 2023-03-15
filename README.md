@@ -256,4 +256,12 @@ def printRandom =
     val r2 = Random()       //error: not found: Random
 ```
 
-### cotinuar 10.2
+### funcao como variavel
+- podemos montar uma função e atribui-la a uma variável, por exemplo:
+```
+val double = (i: Int) => i *2
+```
+- podemos declarar também explicitamente o tipo de retorno
+```
+val double: (Int) => Int = i => { i * 2 }
+```
