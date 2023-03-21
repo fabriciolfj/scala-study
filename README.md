@@ -265,3 +265,31 @@ val double = (i: Int) => i *2
 ```
 val double: (Int) => Int = i => { i * 2 }
 ```
+
+### funcao parcialmente aplicada
+- podemos omitir algum parâmetro da função
+- o resultado e uma funcao parcialmente aplicada, onde este resultado, que é outra função, pode passar o parâmetro pendente.
+- assim obtendo o resultado final
+```
+scala> val addTo3 = soma(1, 2, _)
+val addTo3: Int => Int = Lambda ...
+
+scala> addTo3(10) 
+res0: Int = 13
+```
+
+### funcao parcial
+- quando a função consegui ser executada, apenas para alguns parâmetros, por exemplo:
+```
+val divide = new PartialFunction[Int, Int] {
+    def apply(x: Int) = 42 / x
+    def isDefinedAt(x: Int) = x != 0
+}
+
+val x = if divide.isDefinedAt(1) then Some(divide(1)) else None 
+val x: Option[Int] = Some(42)
+```
+- o collect funciona com o partialfunction, pois ele executa o isDefinedAt antes de chamar o apply (o map não faz isso)
+```
+  val result = List(0, 1, 2).collect(divide)
+```
