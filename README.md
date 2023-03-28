@@ -293,3 +293,15 @@ val x: Option[Int] = Some(42)
 ```
   val result = List(0, 1, 2).collect(divide)
 ```
+
+## Colecoes
+### seq
+- é imutabél ou mutavel
+- indexada ou linear(lista encadeada)
+- para acesso aleatório utilize Indexados (IndexedSeq, Vector)
+- para operacoes head e tail, utilize listas encadeadas como: LinearSeq
+- para utilizar um sequencia mutavel, sugerido é ArrayBuffer
+- para lista encadeadas pode utilizar List (imutavel) ou ListBuffer (multavel)
+
+
+- Set como em java, é uma coleção de elementos únicos
