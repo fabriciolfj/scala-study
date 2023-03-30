@@ -294,14 +294,33 @@ val x: Option[Int] = Some(42)
   val result = List(0, 1, 2).collect(divide)
 ```
 
+###given
+- quando queremos criar um metodo de uso implicito
+```
+given personOrdering: Ordering[Person] with {
+  override def compare(x: Person, y: Person): Int = 
+    x.surname.compareTo(y.surname)
+}
+```
+- podemos referenciar o uso dele 
+```
+def listPeople(persons: Seq[Person])(using ordering: Ordering[Person]) = ...
+```
+- e na chamada, nao precisamos passar ele explicitamente
+```
+listPeople(List(Person("Weasley", "Ron", 15), Person("Potter", "Harry", 15))) 
+```
+
 ## Colecoes
-### seq
 - é imutabél ou mutavel
 - indexada ou linear(lista encadeada)
 - para acesso aleatório utilize Indexados (IndexedSeq, Vector)
 - para operacoes head e tail, utilize listas encadeadas como: LinearSeq
 - para utilizar um sequencia mutavel, sugerido é ArrayBuffer
 - para lista encadeadas pode utilizar List (imutavel) ou ListBuffer (multavel)
-
-
 - Set como em java, é uma coleção de elementos únicos
+
+### view
+- coleçoes preguiçosas para metodos transformadores (map, filter, reverse), os elementos são chamados quando precisa
+- ideal para grande colecoes
+- ideal para performance e economica de memoria
