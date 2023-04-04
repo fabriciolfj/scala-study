@@ -324,3 +324,15 @@ listPeople(List(Person("Weasley", "Ron", 15), Person("Potter", "Harry", 15)))
 - coleçoes preguiçosas para metodos transformadores (map, filter, reverse), os elementos são chamados quando precisa
 - ideal para grande colecoes
 - ideal para performance e economica de memoria
+
+### operadores
+- predicate - retorna true ou false com base em uma função
+- funções anônimas
+- loops implícitos, como filter, foreach, map, reduceLeft
+
+#### iterator
+- ideal para desempenho, leitura de arquivos grandes
+- ele se esgota, ou seja, apos iterar sobre ele, a segunda vez não terá nenhum resultado.
+- podemos usar os operadores comuns, como map, filter, for
+- ele é lazy ou seja, preguiçoso, é executada a iteração quando é chamada (foreach por ex)
+- podemos usar o bufferedIterator, para espiar o iterator sem precisar mover (chamar o next)

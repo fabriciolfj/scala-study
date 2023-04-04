@@ -19,7 +19,7 @@ class Simulacao {
   val e = a ++: Seq(90, 80)
   println(e)
 
-  val f = a :++ Seq(100, 110)
+  val f = Seq(100, 110) ++: a
   println(f)
 
   val g = a.patch(1, Seq(7, 5), 2)
