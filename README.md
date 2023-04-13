@@ -312,7 +312,7 @@ listPeople(List(Person("Weasley", "Ron", 15), Person("Potter", "Harry", 15)))
 ```
 
 ## Colecoes
-- é imutabél ou mutavel
+- é imutabél (deposi de criada, nao conseguimos adicionar ou remover elementos, a nao ser que atribuimos a uma nova variavel) ou mutavel(conseguimos add ou remover elementos)
 - indexada ou linear(lista encadeada)
 - para acesso aleatório utilize Indexados (IndexedSeq, Vector)
 - para operacoes head e tail, utilize listas encadeadas como: LinearSeq
@@ -341,4 +341,21 @@ listPeople(List(Person("Weasley", "Ron", 15), Person("Potter", "Harry", 15)))
 - são lentos no uso em uma list
 - utilize melhor em listas indexadas, como Vector
 
-### 13.12
+### varargs
+- para passar uma lista a um metodo que recebe um varargs, temos que utilizar : _*
+- ja o método que recebe como parâmetro o varargs, seria strings: String*
+- se tentarmos passar uma lista direta a um método que espera um varargs, receberemos um erro de compilação.
+
+### stack (pilha)
+- ultimo que entrada, primeiro que sai
+- incluir no topo e no inicio são rapidos
+- alguns operadores:
+```
+val s = Stack[Int]()        // s: collection.mutable.Stack[Int] = Stack()
+s.push(1)                   // s: Stack(1)
+s.push(2,3)                 // s: Stack(3, 2, 1)
+s.pushAll(List(4,5))        // s: Stack(5, 4, 3, 2, 1)
+val a = s.pop               // a=5, s=Stack(4, 3, 2, 1)
+val b = s.popWhile(_ > 2)   // b=List(4, 3), s=Stack(2, 1)
+val c = s.popAll            // c=List(1, 2), s=Stack()
+```
