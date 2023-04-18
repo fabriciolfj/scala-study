@@ -359,3 +359,7 @@ val a = s.pop               // a=5, s=Stack(4, 3, 2, 1)
 val b = s.popWhile(_ > 2)   // b=List(4, 3), s=Stack(2, 1)
 val c = s.popAll            // c=List(1, 2), s=Stack()
 ```
+
+### lendo ou escrevendo arquivos
+- scala usa as classes em java, principalmente para arquivos binarios
+- mas temos o Source.fromFile, que podemos utilizar para ler o conteudo do arquivo

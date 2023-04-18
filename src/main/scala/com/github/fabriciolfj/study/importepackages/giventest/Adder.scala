@@ -3,8 +3,10 @@ package com.github.fabriciolfj.study.importepackages.giventest
 object Adder {
   trait Adder[T]:
     def add(a: T, b: T): T
+    
   given Adder: Adder[Int] with
     def add(a: Int, b: Int) : Int = a + b
+    
   given Adder[String] with
     def add(a: String, b: String) : String = "" + (a.toInt + b.toInt)
 }
