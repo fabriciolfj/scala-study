@@ -414,5 +414,41 @@ Compile / packageBin / mainClass := Some("com.alvinalexander.myproject.Foo")
 ### executar arquivo jar
 - para execurtar o arquivo jar gerado pelo sbt package, precisa do plugin abaixo, que deve-se ser inserido no arquivo project/assembly.sbt
 ```
-addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.15.0")
+addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "2.1.1")
+```
+- execute:
+```
+sbt assembly
+```
+- podemos dar um show para mostrar o local do jar gerado e executado (ele pegará o main vinculado)
+- abaixo um build.sbt completo com assembly
+```
+val scala3Version = "3.2.2"
+
+lazy val root = project
+  .in(file("."))
+  .settings(
+    name := "crud-customer",
+    version := "0.1.0-SNAPSHOT",
+
+    scalaVersion := scala3Version,
+
+    libraryDependencies ++= Seq(
+      "org.typelevel" %% "cats-core" % "2.9.0",
+      "org.typelevel" %% "cats-effect" % "3.4.8",
+      "org.scalameta" %% "munit" % "0.7.29" % Test,
+      "org.scalatest" %% "scalatest" % "latest.integration" % "test"
+    ),
+
+    assembly / mainClass := Some("com.github.fabriciolfj.Hello"),
+
+    Compile / run / mainClass := Some("com.github.fabriciolfj.Hello"),
+
+    assembly / assemblyJarName := "MyApp.jar",
+
+    publishTo := Some (Resolver.file("file", new File("./out")))
+  )
+
+
+
 ```
