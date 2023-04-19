@@ -363,3 +363,56 @@ val c = s.popAll            // c=List(1, 2), s=Stack()
 ### lendo ou escrevendo arquivos
 - scala usa as classes em java, principalmente para arquivos binarios
 - mas temos o Source.fromFile, que podemos utilizar para ler o conteudo do arquivo
+
+### criando um projeto via sbt
+```
+sbt new scala/scala3.g8
+```
+- obs da conflito quando possui graalvm instalada na maquina
+
+### passando parametros da jvm
+```
+ sbt -v -J-Xmx2048m "run teste"
+```
+
+### exemplo de um arquivo build.sbt com mais de uma dependencia:
+```
+val scala3Version = "3.2.2"
+
+lazy val root = project
+  .in(file("."))
+  .settings(
+    name := "crud-customer",
+    version := "0.1.0-SNAPSHOT",
+
+    scalaVersion := scala3Version,
+
+    libraryDependencies ++= Seq(
+      "org.typelevel" %% "cats-core" % "2.9.0",
+      "org.typelevel" %% "cats-effect" % "3.4.8",
+      "org.scalameta" %% "munit" % "0.7.29" % Test
+    )
+  )
+```
+
+
+### especificando um main para ser executado
+```
+sbt "runMain com.github.fabriciolfj.hello teste"
+```
+
+### especificando um main para ser incluido no jar
+```
+inclua no arquivo build.sbt
+// set the main class for the 'sbt run' task
+Compile / run / mainClass := Some("com.alvinalexander.myproject.Foo")
+
+// set the main class for the 'sbt package' task
+Compile / packageBin / mainClass := Some("com.alvinalexander.myproject.Foo")
+```
+
+### executar arquivo jar
+- para execurtar o arquivo jar gerado pelo sbt package, precisa do plugin abaixo, que deve-se ser inserido no arquivo project/assembly.sbt
+```
+addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.15.0")
+```
