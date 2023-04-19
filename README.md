@@ -448,7 +448,4 @@ lazy val root = project
 
     publishTo := Some (Resolver.file("file", new File("./out")))
   )
-
-
-
 ```
