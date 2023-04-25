@@ -449,3 +449,19 @@ lazy val root = project
     publishTo := Some (Resolver.file("file", new File("./out")))
   )
 ```
+
+## future
+- para utilizar o future, precisamos de um pool de threads, que pode ser fornecido pelo import:
+```
+import concurrent.ExecutionContext.Implicits.global 
+```
+
+## akka
+- trabalha-se com actors (atores)
+- encapusula o estado e comportamento
+- ele tem uma caixa de entrada que recebe mensagens e as processas
+
+### solução akka OOP (orientada a objetos)
+- uma solução akka oop e uma combinação:
+- um object (similar a metodo static) para criar uma classe via apply (complementar)
+- uma classe privada que extende AbstrctBehavior e implementa o metodo abstrato onMessage

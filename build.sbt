@@ -10,3 +10,5 @@ lazy val root = (project in file("."))
   )
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.15" % "test"
+libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.6.4"
+libraryDependencies += "com.typesafe.akka" %% "akka-actor-typed" % "2.6.4"
