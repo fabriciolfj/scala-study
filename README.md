@@ -294,7 +294,7 @@ val x: Option[Int] = Some(42)
   val result = List(0, 1, 2).collect(divide)
 ```
 
-###given
+### given
 - quando queremos criar um metodo de uso implicito
 ```
 given personOrdering: Ordering[Person] with {
@@ -310,6 +310,10 @@ def listPeople(persons: Seq[Person])(using ordering: Ordering[Person]) = ...
 ```
 listPeople(List(Person("Weasley", "Ron", 15), Person("Potter", "Harry", 15))) 
 ```
+
+### implicit
+- Em Scala, a palavra reservada "implicit" é usada para indicar que um valor pode ser encontrado automaticamente pelo compilador e injetado em um determinado contexto sem a necessidade de uma referência explícita.
+
 
 ## Colecoes
 - é imutabél (deposi de criada, nao conseguimos adicionar ou remover elementos, a nao ser que atribuimos a uma nova variavel) ou mutavel(conseguimos add ou remover elementos)
