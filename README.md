@@ -469,3 +469,48 @@ import concurrent.ExecutionContext.Implicits.global
 - uma solução akka oop e uma combinação:
 - um object (similar a metodo static) para criar uma classe via apply (complementar)
 - uma classe privada que extende AbstrctBehavior e implementa o metodo abstrato onMessage
+
+# Resumo dos objetos em scala
+## trait
+```
+Em Scala, um `trait` é uma abstração de interface que pode conter métodos abstratos, métodos concretos, valores e campos. 
+Ele é semelhante a uma interface em outras linguagens de programação, 
+mas com algumas diferenças importantes, como a possibilidade de ter implementações de método e a possibilidade de ter campos e valores concretos. 
+Um `trait` pode ser estendido por classes e outros `traits`, e uma classe pode estender múltiplos `traits`. 
+Dessa forma, o `trait` permite criar hierarquias de tipos que podem compartilhar comportamentos comuns, 
+sem a necessidade de herança múltipla. Isso torna o código mais modular e flexível.
+```
+
+## object
+```
+Em Scala, o `object` é um singleton, ou seja, é um objeto que representa uma classe única e 
+pode ter apenas uma instância durante o tempo de vida do programa. 
+O `object` pode ser utilizado para definir métodos e valores que pertencem à classe única, 
+sem precisar criar uma instância dessa classe. Além disso, 
+os `object`s podem ser usados como módulos para agrupar métodos e valores relacionados em um único lugar.
+```
+
+
+## case classe
+```
+Em Scala, uma case class é uma classe que é otimizada para ser usada como um objeto de valor imutável (value object). 
+Ela é criada usando a palavra-chave case class e possui várias propriedades úteis, 
+como uma implementação padrão de equals, hashCode e toString baseada nas suas propriedades, além de suporte a desestruturação (pattern matching) em expressões.
+Ao criar uma case class em Scala, o compilador gera automaticamente métodos para as propriedades da classe, 
+tornando-a uma maneira conveniente e concisa de definir classes simples que contêm apenas dados. 
+```
+
+## classe  java vs scala
+```
+Em Scala, uma classe é semelhante a uma classe em Java, pois permite definir
+um conjunto de métodos e propriedades que podem ser usados para criar objetos. 
+No entanto, há algumas diferenças importantes entre as classes em Scala e Java:
+
+- Em Scala, as classes são geralmente mais concisas do que em Java, porque o compilador pode inferir o tipo das propriedades e métodos com base no contexto em que são usados.
+- Em Scala, as classes podem ser definidas como "case classes", que são usadas principalmente para representar dados imutáveis. As "case classes" fornecem métodos de comparação e hashcode predefinidos, bem como uma sintaxe mais concisa para criar objetos e desestruturá-los.
+- Em Scala, as classes podem ter construtores secundários, o que permite que você defina vários construtores com assinaturas diferentes.
+- Em Scala, as classes podem ter membros "abstract", que são propriedades e métodos que não têm implementação e devem ser implementados por subclasses. Isso é semelhante ao recurso de "interface" em Java, mas com mais flexibilidade e recursos.
+
+Essas são algumas das diferenças entre as classes em Scala e Java,
+ mas há muitas outras diferenças sutis e recursos interessantes que Scala oferece em relação a Java.
+```
