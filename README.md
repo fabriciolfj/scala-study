@@ -514,3 +514,10 @@ No entanto, há algumas diferenças importantes entre as classes em Scala e Java
 Essas são algumas das diferenças entre as classes em Scala e Java,
  mas há muitas outras diferenças sutis e recursos interessantes que Scala oferece em relação a Java.
 ```
+
+# Spark
+- mecanismo de análise de dados unificado, para processamento em larga escala
+
+## RDD (resilient ditributed dataset)
+- permite que trate os dados como uma grande planilha distribuída
+- podemos depois converter em um DataFrame, onde possubilita criar consultas semelhantes ao SQL
